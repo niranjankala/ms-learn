@@ -6,7 +6,7 @@ namespace Summaries.Data.Services
     {
         public void AddBook(Book book)
         {
-            throw new NotImplementedException();
+            Data.Books.Add(book);
         }
 
         public void DeleteBook(int id)
