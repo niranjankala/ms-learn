@@ -4,29 +4,39 @@ namespace Summaries.Data.Services
 {
     public class BookService : IBookService
     {
-        public void AddBook(Book book)
+        public void AddBook(Book newBook)
         {
-            Data.Books.Add(book);
+            Data.Books.Add(newBook);
         }
 
         public void DeleteBook(int id)
         {
-            throw new NotImplementedException();
+            var book = Data.Books.FirstOrDefault(n => n.Id == id);
+            Data.Books.Remove(book);
         }
 
         public List<Book> GetAllBooks()
         {
-            throw new NotImplementedException();
+            return Data.Books.ToList();
         }
 
         public Book GetBookById(int id)
         {
-            throw new NotImplementedException();
+            return Data.Books.FirstOrDefault(n => n.Id == id);
         }
 
-        public void UpdateBook(int id, Book book)
+        public void UpdateBook(int id, Book newBook)
         {
-            throw new NotImplementedException();
+            var oldBook = Data.Books.FirstOrDefault(n => n.Id == id);
+            if(oldBook != null)
+            {
+                oldBook.Title = newBook.Title;
+                oldBook.Author = newBook.Author;
+                oldBook.Description = newBook.Description;
+                oldBook.Rate = newBook.Rate;
+                oldBook.DateStart = newBook.DateStart;
+                oldBook.DateRead = newBook.DateRead;
+            }
         }
     }
 }
