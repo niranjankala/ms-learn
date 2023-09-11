@@ -1,8 +1,11 @@
+
+using Summaries.Data.Services;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
+ConfigureServices(builder.Services);
 
-builder.Services.AddControllersWithViews();
 
 var app = builder.Build();
 
@@ -25,3 +28,11 @@ app.MapControllerRoute(
 app.MapFallbackToFile("index.html");
 
 app.Run();
+
+
+
+void ConfigureServices(IServiceCollection services)
+{
+    services.AddControllersWithViews();
+    services.AddTransient<IBookService, BookService>();
+}
