@@ -132,5 +132,8 @@
       }
     }
   },
-  "defaultProject": "Summaries"
+  "defaultProject": "Summaries",
+  "cli": {
+    "analytics": "36f2b99b-ee92-4c1d-b293-3d623cb33b46"
+  }
 }
