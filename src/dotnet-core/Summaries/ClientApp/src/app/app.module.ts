@@ -5,12 +5,11 @@ import { HttpClientModule } from '@angular/common/http';
 import { RouterModule } from '@angular/router';
 
 import { AppComponent } from './app.component';
-import { NavMenuComponent } from './nav-menu/nav-menu.component';
-import { HomeComponent } from './home/home.component';
-import { CounterComponent } from './counter/counter.component';
-import { FetchDataComponent } from './fetch-data/fetch-data.component';
+import { NavMenuComponent } from './components/nav-menu/nav-menu.component';
+import { HomeComponent } from './components/home/home.component';
+
 import { BooksComponent } from './components/books/books.component';
-import { DeleteBookComponent } from './components/delete-books/delete-book.component';
+import { DeleteBookComponent } from './components/delete-book/delete-book.component';
 import { NewBookComponent } from './components/new-book/new-book.component';
 import { ShowBookComponent } from './components/show-book/show-book.component';
 import { UpdateBookComponent } from './components/update-book/update-book.component';
@@ -21,8 +20,6 @@ import { BookService } from './services/book.service';
     AppComponent,
     NavMenuComponent,
     HomeComponent,
-    CounterComponent,
-    FetchDataComponent,
     BooksComponent,
     DeleteBookComponent,
     NewBookComponent,
@@ -35,8 +32,11 @@ import { BookService } from './services/book.service';
     FormsModule,
     RouterModule.forRoot([
       { path: '', component: HomeComponent, pathMatch: 'full' },
-      { path: 'counter', component: CounterComponent },
-      { path: 'fetch-data', component: FetchDataComponent },
+      { path: 'books', component: BooksComponent },
+      { path: 'new-book', component: NewBookComponent },
+      { path: 'update-book/:id', component: UpdateBookComponent },
+      { path: 'delete-book/:id', component: DeleteBookComponent },
+      { path: 'show-book/:id', component: ShowBookComponent }
     ])
   ],
   providers: [BookService],
