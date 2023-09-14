@@ -9,7 +9,10 @@ export class BooksComponent implements OnInit {
   
   public books: Book[];
 
-  constructor() { }
+  constructor() { 
+    // Initialization inside the constructor
+   //this.books = [];
+  }
 
   ngOnInit() {
 
