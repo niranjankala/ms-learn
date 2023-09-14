@@ -24,3 +24,7 @@ cd..
 cd .\services\
 Run below command to create a service
 ng g s book
+
+
+-- To run the project run the below command at the root of the project.
+dotnet run
