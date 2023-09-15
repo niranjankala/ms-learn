@@ -21,6 +21,9 @@ export class BookService {
     return this.http.post(this._baseURL+"/AddBook/", book);
   }
 
+  addBook(book: Book){
+    return this.http.post(this._baseURL+"/AddBook/", book);
+  }
 
 
 }
