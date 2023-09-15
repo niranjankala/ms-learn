@@ -8,9 +8,11 @@ namespace Summaries.Controllers
     public class BooksController:Controller
     {
         private IBookService _service;
-        public BooksController(IBookService service)
+        private readonly ILogger<BooksController> _logger;
+        public BooksController(ILogger<BooksController> logger, IBookService service)
         {
             _service = service;
+            _logger = logger;
         }
 
         //Create/Add a new book
