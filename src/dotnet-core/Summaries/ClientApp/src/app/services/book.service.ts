@@ -9,14 +9,12 @@ import { Book } from '../interfaces/book';
 export class BookService {
 
   _baseURL: string;
-  
-  _apiPath: string = "api/books/GetBooks";
 
   constructor(private http: HttpClient, @Inject('BASE_URL') baseUrl: string) {
-    this._baseURL = baseUrl;
+    this._baseURL = baseUrl + "api/Books";
   }
   getAllBooks(){
-    return this.http.get<Book[]>(this._baseURL + this._apiPath);
+    return this.http.get<Book[]>(this._baseURL + "/GetBooks");
   }
 
 }
