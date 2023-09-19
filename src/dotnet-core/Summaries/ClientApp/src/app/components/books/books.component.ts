@@ -9,19 +9,27 @@ import { BookService } from 'src/app/services/book.service';
   styleUrls: ['./books.component.css']
 })
 export class BooksComponent implements OnInit {
-  
+
   public books: Book[];
 
-  constructor(private  service: BookService, private router: Router) { 
-    // Initialization inside the constructor
-   //this.books = [];
-  }
+  constructor(private service: BookService, private router: Router) { }
 
   ngOnInit() {
-    this.service.getAllBooks().subscribe(data => { this.books = data; });
+    this.service.getAllBooks().subscribe(data => {
+      this.books = data;
+    });
   }
-  showBook(id:number){
-    this.router.navigate(["show-book/"+id]);
 
+  showBook(id: number){
+    this.router.navigate(["/show-book/"+id]);
   }
+
+  updateBook(id: number){
+    this.router.navigate(["/update-book/"+id]);
+  }
+
+  deleteBook(id: number){
+    this.router.navigate(["/delete-book/"+id]);
+  }
+
 }

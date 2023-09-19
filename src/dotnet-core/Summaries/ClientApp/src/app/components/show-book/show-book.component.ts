@@ -1,8 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { BookService } from 'src/app/services/book.service';
 import { ActivatedRoute } from '@angular/router';
 import { Book } from 'src/app/interfaces/book';
-import { BookService } from 'src/app/services/book.service';
-
 
 @Component({
   selector: 'app-show-book',
@@ -10,8 +9,8 @@ import { BookService } from 'src/app/services/book.service';
   styleUrls: ['./show-book.component.css']
 })
 export class ShowBookComponent implements OnInit {
-
   book: Book;
+
   constructor(private service: BookService, private route: ActivatedRoute) { }
 
   ngOnInit() {
@@ -19,4 +18,5 @@ export class ShowBookComponent implements OnInit {
       this.book = data;
     });
   }
+
 }
