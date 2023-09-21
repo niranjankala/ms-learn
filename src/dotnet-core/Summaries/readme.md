@@ -29,3 +29,7 @@ ng g s book
 
 -- To run the project run the below command at the root of the project.
 dotnet run
+
+
+-- Adding libraries for ngrx NgRx actions
+npm install @ngrx/core @ngrx/effects @ngrx/store --save
