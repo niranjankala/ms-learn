@@ -13,3 +13,5 @@ export class loadBooksSuccessAction implements Action
     readonly type = types.LOAD_BOOKS_SUCCESS;
     constructor(public payload: Book[]){}
 }
+
+export type Actions = loadBooksAction| loadBooksSuccessAction;
