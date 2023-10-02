@@ -27,6 +27,10 @@ builder.Services.AddAuthorization(options =>
         policy.RequireClaim("YearsOfExperience", "10");
         policy.RequireClaim("JoinedCompany", "2020");
     });
+    options.AddPolicy("HiringManager", policy =>
+    {
+        policy.AddRequirements(new SameManagerRequirement());
+    });
 });
 //Add CORS 
 builder.Services.AddCors();
