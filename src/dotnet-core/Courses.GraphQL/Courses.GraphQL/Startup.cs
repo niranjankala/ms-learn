@@ -14,6 +14,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
 using Courses.GraphQL.Data.Repositories;
+using GraphQL.Server;
 
 namespace Courses.GraphQL
 {
@@ -39,6 +40,9 @@ namespace Courses.GraphQL
             services.AddDbContext<AppDbContext>(options => options.UseSqlServer(ConnectionString));
             services.AddScoped<CoursesRepository>();
 
+            // GraphQL
+            services.AddGraphQL().AddSystemTextJson();
+
             services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "Courses.GraphQL", Version = "v1" });
@@ -56,6 +60,10 @@ namespace Courses.GraphQL
             }
 
             app.UseHttpsRedirection();
+
+            //GraphQL
+            //app.UseGraphQL<schemaClass>()
+            app.UseGraphQLGraphiQL("/ui/graphql");
 
             app.UseRouting();
 
