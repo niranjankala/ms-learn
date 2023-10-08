@@ -5,7 +5,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace Courses.GraphQL.Types
+namespace Courses.GraphQL.GraphQL.Types
 {
     public class CourseType:ObjectGraphType<Course>
     {
