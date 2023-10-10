@@ -17,6 +17,7 @@ using Courses.GraphQL.Data.Repositories;
 using GraphQL.Server;
 using Courses.GraphQL.GraphQL;
 using Courses.GraphQL.GraphQL.Queries;
+using Courses.GraphQL.GraphQL.Mutations;
 
 namespace Courses.GraphQL
 {
@@ -42,6 +43,7 @@ namespace Courses.GraphQL
             services.AddDbContext<AppDbContext>(options => options.UseSqlServer(ConnectionString));
             services.AddScoped<CoursesRepository>();
             services.AddScoped<CourseQuery>();
+            services.AddScoped<CourseMutation>();
             services.AddScoped<AppSchema>();
 
             // GraphQL
