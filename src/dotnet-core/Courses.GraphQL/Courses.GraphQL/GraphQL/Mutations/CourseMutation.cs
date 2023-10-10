@@ -25,6 +25,33 @@ namespace Courses.GraphQL.GraphQL.Mutations
                     var course = context.GetArgument<Course>("course");
                     return repository.AddCourse(course);
                 });
+
+            Field<CourseType>(
+               "updateCourse",
+               "Is used to update an existing course in the database",
+               arguments: new QueryArguments(
+                   new QueryArgument<NonNullGraphType<IdGraphType>> { Name = "Id", Description = "Id of the course to be updated" },
+                   new QueryArgument<NonNullGraphType<CourseInputType>> { Name = "course", Description = "Updated course values" }
+                   ),
+               resolve: context =>
+               {
+                   var id = context.GetArgument<int>("id");
+                   var course = context.GetArgument<Course>("course");
+                   return repository.UpdateCourse(id, course);
+               });
+
+            Field<CourseType>(
+               "deleteCourse",
+               "Is used to delete a course from the database",
+               arguments: new QueryArguments(
+                   new QueryArgument<NonNullGraphType<IdGraphType>> { Name = "Id", Description = "Id of the course to be deleted" }                  
+                   ),
+               resolve: context =>
+               {
+                   var id = context.GetArgument<int>("id");                  
+                   repository.DeleteCourse(id);
+                   return true;
+               });
         }
     }
 }
