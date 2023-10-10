@@ -1,6 +1,7 @@
 
 
-Query to fetch courses details, Just specify the properties/columns
+### Query to fetch courses details, Just specify the properties/columns
+```
 {
   courses {
     id
@@ -8,10 +9,10 @@ Query to fetch courses details, Just specify the properties/columns
     description
   }
 }
+```
 
 
-
-Add Items using mutation on UI
+### Add Items using mutation on UI
 
 ```
 mutation{
@@ -28,7 +29,7 @@ mutation{
 ```
 
 
-Update Items using mutation on UI
+### Update Items using mutation on UI
 
 ```
 mutation{
@@ -43,7 +44,7 @@ mutation{
 }
 ```
 
-Delete a Item using mutation on UI
+### Delete a Item using mutation on UI
 ```
 mutation{
   deleteCourse(id:1){
@@ -51,3 +52,24 @@ mutation{
   }
 }
 ```
+
+### Get data with related entities
+```
+{
+  courses {
+    id
+    name
+    description,
+	reviews{
+	rate,
+	comment
+	}
+  }
+}
+```
+
+### Mutation to add relational data
+
+
+
+
