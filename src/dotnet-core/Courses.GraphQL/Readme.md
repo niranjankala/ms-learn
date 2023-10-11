@@ -69,7 +69,32 @@ mutation{
 ```
 
 ### Mutation to add relational data
-
-
+```
+mutation{
+  addCourse(course:{name:"Welcome Course ", description:"course descripion", dateAdded:"2023-10-10T06:08:45.1134476Z"
+    , dateUpdated:"2023-10-10T06:08:45.1244476Z",
+    reviews:[
+      {
+        rate:5,
+        comment: "rate of 5"
+      },
+      {
+        rate:7,
+        comment: "rate of 7"
+      }
+    ]
+  	}){
+    id, 
+    name, 
+    description,     
+    dateAdded, 
+    dateUpdated,
+    reviews{
+      rate,
+      comment
+    },     
+  }
+}
+```
 
 

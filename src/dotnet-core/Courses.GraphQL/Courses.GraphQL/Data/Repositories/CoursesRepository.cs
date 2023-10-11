@@ -26,8 +26,27 @@ namespace Courses.GraphQL.Data.Repositories
         }
         public Course AddCourse(Course course)
         {
-            _context.Courses.Add(course);
+            var newCourse = new Course()
+            {
+                Name = course.Name,
+                Description = course.Description,
+                DateAdded = course.DateAdded,
+                DateUpdated = course.DateUpdated
+            };
+            _context.Courses.Add(newCourse);
             _context.SaveChanges();
+
+            foreach (var review in course.Reviews)
+            {
+                var newReview = new Review()
+                {
+                     Rate = review.Rate,
+                     Comment = review.Comment,
+                     CourseId = newCourse.Id
+                };
+                _context.Reviews.Add(newReview);
+                _context.SaveChanges();
+            }
             return course;
         }
 
