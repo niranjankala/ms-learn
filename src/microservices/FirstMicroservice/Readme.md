@@ -79,3 +79,22 @@ Replace the content of the .dockerignore to the following in the text editor:
 [b|B]in
 [O|o]bj
 ```
+
+### Create Docker image
+Run the following command:
+
+```dotnetcli
+docker build -t firstmicroservice .
+```
+
+The docker build command uses the Dockerfile to build a Docker image.
+
+- The -t firstmicroservice parameter tells it to tag (or name) the image as firstmicroservice.
+- The final parameter tells it which directory to use to find the Dockerfile (. specifies the current directory).
+- This command will download and build all dependencies to create a Docker image and may take some time.
+
+You can run the following command to see a list of all images available on your machine, including the one you just created.
+
+```dotnetcli
+docker images
+```
