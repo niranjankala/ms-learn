@@ -98,3 +98,18 @@ You can run the following command to see a list of all images available on your 
 ```dotnetcli
 docker images
 ```
+
+
+### Run Docker image
+You can run your app in a container using the following command:
+
+```dotnetcli
+docker run -it --rm -p 3000:8080 --name firstmicroservicecontainer firstmicroservice
+```
+You can browse to the following URL to access your application running in a container: http://localhost:3000/weatherforecast
+
+
+Optionally, you can view your container running in a separate command prompt using the following command:
+```dotnetcli
+docker ps
+```
